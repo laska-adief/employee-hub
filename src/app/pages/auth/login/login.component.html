@@ -1,0 +1,23 @@
+<div class="login-backdrop">
+  <div class="container auth-container">
+    <div class="login-container">
+      <h1 class="title">Login</h1>
+      <form class="form">
+        <mat-form-field>
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="Email" name="email" [(ngModel)]="email">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Password</mat-label>
+          <input matInput type="password" placeholder="Password" name="password" [(ngModel)]="password">
+        </mat-form-field>
+        @if (isErrorLogin) {
+        <div class="error-login">
+          Invalid Email or Password
+        </div>
+        }
+        <button mat-flat-button color="primary" type="submit" (click)="handleLogin()">Login</button>
+      </form>
+    </div>
+  </div>
+</div>
