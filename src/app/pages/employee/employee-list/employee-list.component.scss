@@ -1,0 +1,76 @@
+.employee {
+  padding: 1rem;
+
+  &-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  &-buttons-table {
+    text-wrap: nowrap;
+    text-align: center;
+
+    .edit-button {
+      color: #f4e736;
+    }
+    
+    .delete-button {
+      color: #F44336;
+    }
+  }
+
+  &-table {
+    overflow-x: auto;
+  }
+
+  &-column-header {
+    text-align: center;
+  }
+
+  &-filter-head {
+    padding-block: .5rem;
+  }
+
+  .pagination{
+    margin-top: .5rem;
+  }
+}
+
+::ng-deep.mat-sort-header-container {
+  justify-content: center;
+}
+
+::ng-deep.mat-mdc-form-field-subscript-wrapper {
+  display: none;
+}
+
+::ng-deep.yellow-snackbar .mdc-snackbar__surface{
+  background: #f4e736 !important;
+}
+
+::ng-deep.yellow-snackbar .mat-mdc-snack-bar-label {
+  color: rgb(0, 0, 0) !important;
+}
+
+::ng-deep.yellow-snackbar button {
+  background-color: #f4e736;
+  color: rgb(0, 0, 0) !important;
+  border: none;
+}
+
+::ng-deep.red-snackbar .mdc-snackbar__surface{
+  background: #F44336 !important;
+}
+
+::ng-deep.red-snackbar .mat-mdc-snack-bar-label {
+  color: white !important;
+}
+
+::ng-deep.red-snackbar button {
+  background-color: #F44336;
+  color: white !important;
+  border: none;
+}
