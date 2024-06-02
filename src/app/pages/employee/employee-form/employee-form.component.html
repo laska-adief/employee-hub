@@ -1,0 +1,109 @@
+<div class="employee-form-container">
+  <h1 class="title">Employee Form</h1>
+  <form [formGroup]="employeeForm">
+    <div class="form-employee formgrid grid">
+      <div class="field col-12 md:col-6">
+        <mat-form-field appearance="outline">
+          <mat-label>Username</mat-label>
+          <input matInput placeholder="Username" formControlName="username" name="username">
+        </mat-form-field>
+        <div class="error-field" *ngIf="employeeForm.get('username')?.touched || employeeForm.get('username')?.dirty">
+          <span *ngIf="employeeForm.get('username')?.hasError('required')">{{"Field is requied"}}</span>
+        </div>
+      </div>
+      <div class="field col-12 md:col-6">
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="Email" formControlName="email" name="email">
+        </mat-form-field>
+        <div class="error-field" *ngIf="employeeForm.get('email')?.touched || employeeForm.get('email')?.dirty">
+          <span *ngIf="employeeForm.get('email')?.hasError('required')">{{"Field is requied"}}</span>
+          <span *ngIf="employeeForm.get('email')?.hasError('email')">{{"Email is invalid"}}</span>
+        </div>
+      </div>
+      <div class="field col-12 md:col-6">
+        <mat-form-field appearance="outline">
+          <mat-label>Firstname</mat-label>
+          <input matInput placeholder="Firstname" formControlName="firstName" name="firstName">
+        </mat-form-field>
+        <div class="error-field" *ngIf="employeeForm.get('firstName')?.touched || employeeForm.get('firstName')?.dirty">
+          <span *ngIf="employeeForm.get('firstName')?.hasError('required')">{{"Field is requied"}}</span>
+        </div>
+      </div>
+      <div class="field col-12 md:col-6">
+        <mat-form-field appearance="outline">
+          <mat-label>Lastname</mat-label>
+          <input matInput placeholder="Lastname" formControlName="lastName" name="lastName">
+        </mat-form-field>
+        <div class="error-field" *ngIf="employeeForm.get('lastName')?.touched || employeeForm.get('lastName')?.dirty">
+          <span *ngIf="employeeForm.get('lastName')?.hasError('required')">{{"Field is requied"}}</span>
+        </div>
+      </div>
+      <div class="field col-12 md:col-6">
+        <mat-form-field appearance="outline">
+          <mat-label>Birthdate</mat-label>
+          <input matInput placeholder="Birthdate" [matDatepicker]="picker" [max]="maxDate" formControlName="birthDate"
+            name="birthDate" (click)="picker.open()">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <div class="error-field" *ngIf="employeeForm.get('birthdate')?.touched || employeeForm.get('birthdate')?.dirty">
+          <span *ngIf="employeeForm.get('birthdate')?.hasError('required')">{{"Field is requied"}}</span>
+        </div>
+      </div>
+      <div class="field col-12 md:col-6">
+        <mat-form-field appearance="outline">
+          <mat-label>Basic Salary</mat-label>
+          <input matInput placeholder="Basic Salary" type="number" formControlName="basicSalary" name="basicSalary">
+        </mat-form-field>
+        <div class="error-field"
+          *ngIf="employeeForm.get('basicSalary')?.touched || employeeForm.get('basicSalary')?.dirty">
+          <span *ngIf="employeeForm.get('basicSalary')?.hasError('required')">{{"Field is requied"}}</span>
+        </div>
+      </div>
+      <div class="field col-12 md:col-6">
+        <mat-form-field appearance="outline">
+          <mat-label>Status</mat-label>
+          <mat-select formControlName="status" name="status" panelClass="select-field">
+            <mat-option value="active">Active</mat-option>
+            <mat-option value="inactive">Inactive</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div class="error-field" *ngIf="employeeForm.get('status')?.touched || employeeForm.get('status')?.dirty">
+          <span *ngIf="employeeForm.get('status')?.hasError('required')">{{"Field is requied"}}</span>
+        </div>
+      </div>
+      <div class="field col-12 md:col-6">
+        <mat-form-field appearance="outline">
+          <mat-label>Group</mat-label>
+          <input matInput placeholder="Group" formControlName="group" [matAutocomplete]="autoCompleteGroup"
+            name="group">
+          <mat-autocomplete #autoCompleteGroup="matAutocomplete">
+            @for (option of fiteredGroupList | async; track option) {
+            <mat-option [value]="option">{{option}}</mat-option>
+            }
+          </mat-autocomplete>
+        </mat-form-field>
+        <div class="error-field" *ngIf="employeeForm.get('group')?.touched || employeeForm.get('group')?.dirty">
+          <span *ngIf="employeeForm.get('group')?.hasError('required')">{{"Field is requied"}}</span>
+        </div>
+      </div>
+      <div class="field col-12">
+        <mat-form-field appearance="outline">
+          <mat-label>Description</mat-label>
+          <textarea matInput placeholder="Description" formControlName="description"
+            rows="3"></textarea name="description" rows="3"></textarea>
+        </mat-form-field>
+        <div class="error-field"
+          *ngIf="employeeForm.get('description')?.touched || employeeForm.get('description')?.dirty">
+          <span *ngIf="employeeForm.get('description')?.hasError('required')">{{"Field is requied"}}</span>
+        </div>
+      </div>
+    </div>
+    <div class="container-button">
+      <button mat-flat-button color="primary" class="mr-2" type="button" (click)="submitForm()"
+        [disabled]="employeeForm.invalid">Save</button>
+      <button mat-flat-button color="warn" [routerLink]="['/employee/list']">Cancel</button>
+    </div>
+  </form>
+</div>

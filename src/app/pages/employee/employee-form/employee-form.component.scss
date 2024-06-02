@@ -1,0 +1,30 @@
+.employee-form-container {
+  padding: 1rem;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+::ng-deep.mat-mdc-form-field-subscript-wrapper {
+  display: none;
+}
+
+.error-field {
+  padding-top: .2rem;
+  color: #f44336;
+}
+
+::ng-deep.green-snackbar .mdc-snackbar__surface{
+  background: #29af18 !important;
+}
+
+::ng-deep.green-snackbar .mat-mdc-snack-bar-label {
+  color: white !important;
+}
+
+::ng-deep.green-snackbar button {
+  background-color: #29af18;
+  color: white !important;
+  border: none;
+}
