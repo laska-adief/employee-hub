@@ -1,0 +1,54 @@
+<div class="employee-detail">
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>Employee Detail</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="spinner-container" *ngIf="isLoading">
+        <mat-spinner class="spinner"></mat-spinner>
+      </div>
+      <div class="grid" *ngIf="!isLoading">
+        <div class="col-12 md:col-6">
+          <label>Username</label>
+          <h3>{{employee.username}}</h3>
+        </div>
+        <div class="col-12 md:col-6">
+          <label>Email</label>
+          <h3>{{employee.email}}</h3>
+        </div>
+        <div class="col-12 md:col-6">
+          <label>Firstname</label>
+          <h3>{{employee.firstName}}</h3>
+        </div>
+        <div class="col-12 md:col-6">
+          <label>Lastname</label>
+          <h3>{{employee.lastName}}</h3>
+        </div>
+        <div class="col-12 md:col-6">
+          <label>Birthdate</label>
+          <h3>{{employee.birthDate | date:'fullDate'}}</h3>
+        </div>
+        <div class="col-12 md:col-6">
+          <label>Basic Salary</label>
+          <h3>{{employee.basicSalary | currency:'Rp '}}</h3>
+        </div>
+        <div class="col-12 md:col-6">
+          <label>Status</label>
+          <h3>{{employee.status}}</h3>
+        </div>
+        <div class="col-12 md:col-6">
+          <label>Group</label>
+          <h3>{{employee.group}}</h3>
+        </div>
+        <div class="col-12">
+          <label>Description</label>
+          <h3>{{employee.description}}</h3>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-flat-button color="primary" [routerLink]="['/employee']">OK</button>
+    </mat-card-actions>
+
+  </mat-card>
+</div>
